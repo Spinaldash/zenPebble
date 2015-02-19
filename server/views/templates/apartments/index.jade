@@ -1,0 +1,31 @@
+extends ../../layouts/master
+block content
+  .text-center
+    h3 Apartments Index
+  .container
+    .lead
+      a.btn.btn-success(href='/apartments/new') Add Apartment!
+    
+    #filter
+      form.form-inline(method='get', action='/apartments')
+        .input-group
+          .form-group
+            button.btn.btn-primary(type='submit') Filter   
+          .form-group
+            input.styled-input(type='number', name='min', placeholder='Min. rent')
+          .form-group
+            input.styled-input(type='number', name='max', placeholder='Max. rent')
+          
+    #apartments
+      .container-fluid
+        .row
+          each apartment in apartments  
+            .aptBorder
+              a.lead(href='/apartments/#{apartment._id}')= apartment.name
+              .image(style='background-repeat: no-repeat; background-size: cover; height: 300px; background-image:url(' + apartment.image + ')')              
+                .info  
+                  ul.list-unstyled
+                    li.sleek.roomsNum= apartment.roomsNum + ' Rooms'
+                    li.sleek.sqft= apartment.sqft + " sqft."
+                    li.sleek.rent= apartment.rent
+                    

@@ -1,7 +1,7 @@
 {
-  "name": "hapi-prototype",
-  "description": "Hapi Prototype Application",
-  "homepage": "https://github.com/coding-house-jan2015/hapi-prototype",
+  "name": "ZenPebble",
+  "description": "Apartment Management Application",
+  "homepage": "https://github.com/spinaldash/zenpebble",
   "keywords": [
     "gulp",
     "jshint",
@@ -12,14 +12,14 @@
     "mongo",
     "mongoose"
   ],
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Michael J. Perez <blueavenger@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coding-house-jan2015/hapi-prototype.git"
+    "url": "git://github.com/spinaldash/zenPebble.git"
   },
   "version": "1.0.0",
   "scripts": {
-    "start": "MONGO_URL=mongodb://localhost/hapi-prototype PORT=3333 nodemon server/index.js",
+    "start": "MONGO_URL=mongodb://localhost/zenpebble PORT=3000 nodemon server/index.js",
     "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build"
   },
   "license": "MIT",

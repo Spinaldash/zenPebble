@@ -1,0 +1,44 @@
+extends ../../layouts/master
+block content
+  h3.lead.text-center Apartments Index
+  .container
+    .row
+      .col-xs-12
+        form(method='post', action='/apartments')
+          .form-group
+            label(for='name') Name
+            input#name.form-control(placeholder='Apartment Name', maxlength=24, name="name")
+          .form-group
+            label(for='image') Image
+            input#image.form-control(type='text', name="image", placeholder='http://')    
+          .form-group
+            label(for='roomsNum') Number of Rooms
+            label.radio-inline(for='One') One
+            input(type='radio', name="roomsNum", id="inlineRadio1", value="1")
+            label.radio-inline(for='female') Two
+            input(type='radio', name="roomsNum", id="inlineRadio2", value="2") 
+            label.radio-inline(for='other') Three
+            input(type='radio', name="roomsNum", id="inlineRadio3", value="3")
+            label.radio-inline(for='other') Four
+            input(type='radio', name="roomsNum", id="inlineRadio4", value="4")  
+          .form-group
+            label(for='rent') Monthly rent per room
+            .input-group
+              span.input-group-addon $
+              input#age.form-control(type='number', name='rent', placeholder='Round to the nearest dollar')
+              span.input-group-addon .00
+          .form-group
+            label(for='sqft') Square Feet
+            select#species.form-control(name="sqft")
+              option Select Square Feet
+              option 1500
+              option 1750
+              option 2000
+              option 2250
+              option 2500
+          .form-group
+            label(for='description') Description
+            textarea#description.form-control(rows='3', placeholder='Enter Apartment Description here', name='description')
+          .form-group
+            button.btn.btn-success(type='submit') Submit Apartment to Database
+      .col-xs-8

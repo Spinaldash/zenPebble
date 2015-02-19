@@ -1,0 +1,41 @@
+extends ../../layouts/master
+block content
+  h3='Editing: ' + apartment.name 
+   
+  .container
+    .row
+      .col-xs-12
+        form(method='post', action='/apartments')
+          .form-group
+            label(for='name') Name
+            input#name.form-control(placeholder='Apartment Name', maxlength=24, name="name", value=apartment.name)
+          .form-group
+            label(for='image') Image
+            input#image.form-control(type='text', name="image", placeholder='http://', value=apartment.image)    
+          .form-group
+            label(for='roomsNum') Number of Rooms
+            label.radio-inline(for='1') One
+            input(type='radio', name="roomsNum", id="inlineRadio1", value="1", checked=apartment.roomsNum === 1)
+            label.radio-inline(for='2') Two
+            input(type='radio', name="roomsNum", id="inlineRadio2", value="2", checked=apartment.roomsNum === 2) 
+            label.radio-inline(for='3') Three
+            input(type='radio', name="roomsNum", id="inlineRadio3", value="3", checked=apartment.roomsNum === 3)
+            label.radio-inline(for='4') Four
+            input(type='radio', name="roomsNum", id="inlineRadio4", value="4", checked=apartment.roomsNum === 4)  
+          .form-group
+            label(for='rent') Monthly rent per room
+            .input-group
+              span.input-group-addon $
+              input#age.form-control(type='number', name='rent', placeholder='Round to the nearest dollar', value=apartment.rent)
+              span.input-group-addon .00
+          .form-group
+            label(for='sqft') Square Feet
+            select#species.form-control(name="sqft")
+              each s in sqft
+                option(selected=apartment.sqft === s)= s
+          .form-group
+            label(for='description') Description
+            textarea#description.form-control(rows='3', placeholder='Enter Apartment Description here', name='description')=apartment.description
+          .form-group
+            button.btn.btn-success(type='submit') Submit Apartment to Database
+      .col-xs-8
