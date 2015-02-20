@@ -4,7 +4,7 @@ html
       .container-fluid
         // Brand and toggle get grouped for better mobile display
         .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          button.navbar-toggle.text-center.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
@@ -16,5 +16,6 @@ html
             li(class=setActive(path, '/')): a(href='/'): i.fa.fa-home &nbsp; Home 
             li(class=setActive(path, '/faq')): a(href='/faq'): i.fa.fa-question &nbsp; FAQ  
             li(class=setActive(path, '/contact')): a(href='/contact'): i.fa.fa-comment &nbsp; Contact
-            li(class=setActive(path, '/monsters')): a(href='/apartments'): i.fa.fa-building-o &nbsp; Apartments
-            li(class=setActive(path, '/clients')): a(href='/clients'): i.fa.fa-users &nbsp; Clients  
+            li(class=setActive(path, '/apartments')): a(href='/apartments'): i.fa.fa-building-o &nbsp; Apartments
+            li(class=setActive(path, '/clients')): a(href='/clients'): i.fa.fa-users &nbsp; Clients 
+            li(class=setActive(path, '/admin')): a(href='/admin'): i.fa.fa-cloud &nbsp; Admin  

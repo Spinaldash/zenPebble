@@ -1,0 +1,28 @@
+extends ../../layouts/master
+block content
+  h3 Client Spotlight
+  
+  #controls
+    form(method='post', action='/clients/#{client._id}/delete')
+      button.btn.btn-danger(type='submit') Delete Client
+    a.btn.btn-info(href='/clients/#{client._id}/edit') Edit Client
+    //- form(method='post', action='/clients/#{client._id}/evict')
+    //-   input(type=hidden, name= value=)
+    //-   button.btn.btn-warning(type='submit') Evict Client
+    
+  #clients
+    .container-fluid
+      .row
+        .col-xs-4.client
+          .page-header= client.name
+          .image(style='background-repeat: no-repeat; background-size: cover; height: 300px; background-image:url(' + client.image + ')') 
+        .col-xs-7.info
+          .page-header Info
+          .info  
+            ul.list-unstyled
+              li.lead.name= client.firstName + ' ' + client.lastName + ', ' + client.gender + ', ' + client.age + '.' 
+              li.email= client.email
+              if(client.apartment.length)
+                li.apartment: a(href='/apartments/' + client.apartment[0]._id)= "Staying in: " + client.apartment[0].name
+              
+  

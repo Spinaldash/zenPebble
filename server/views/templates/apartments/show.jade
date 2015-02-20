@@ -6,30 +6,40 @@ block content
     form(method='post', action='/apartments/#{apartment._id}/delete')
       button.btn.btn-danger(type='submit') Delete Apartment
     a.btn.btn-info(href='/apartments/#{apartment._id}/edit') Edit Apartment
-    
-    if(apartment.roomsNum - apartment.tenants)
+        
+    if(apartment.roomsNum - apartment.tenants.length)
       h3 Rent Apartment
-      form(method='post', action='/apartments/#{apartment._id}/rent')
+      form(method='post', action='/apartments/#{apartment._id}/rent') 
+        //- input(type='hidden', value=apartment._id, name='apartmentId')
         .form-group
           select(name='clientId')
-          each client in clients
-            option(value=client._id)= client.name 
+            each client in clients
+              if !client.apartment.length
+                option(value=client._id)= client.firstName + " " + client.lastName 
         .form-group
-            button(type='submit') Rent!
+            button(type='submit') Add Tenant!
       
   #apartments
     .container-fluid
       .row
         .col-xs-4.apartment
           .page-header= apartment.name
-          .image(style='background-repeat: no-repeat; background-size: cover; height: 300px; background-image:url(' + apartment.image + ')') 
-        .col-xs-7.info
+          .image(style='height: 100%; width: 100%; background-size: contain; background: url(' + apartment.image + ') no-repeat center center fixed;') 
+        .col-xs-4.info
           .page-header Info
           .info  
             ul.list-unstyled
               li.roomsNum= apartment.roomsNum + ' Rooms'
-              li.tenants= apartment.tenants + ' tenants'
               li.sqft= apartment.sqft + ' sqft.'
               li.rent= apartment.rent
               li.description= apartment.description
+        .col-xs-4.info
+          - console.log("apartment.tenants[0]= ", apartment.tenants[0]);
+          .page-header Tenants
+            .tenantBox
+              .tenantDisplay
+                each t in apartment.tenants
+                  - console.log(t)
+                  a(href='/clients/' + t._id)
+                    img.img-circle(src=t.image)
   

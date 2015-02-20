@@ -1,0 +1,33 @@
+extends ../../layouts/master
+block content
+  h3.lead.text-center Clients Index
+  .container
+    .row
+      .col-xs-12
+        form(method='post', action='/clients/#{client._id}')
+          .form-group
+            label(for='firstName') First Name
+            input#firstName.form-control(placeholder='First Name', maxlength=24, name="firstName", value=client.firstName)
+          .form-group
+            label(for='lastName') Last Name
+            input#lastName.form-control(placeholder='Last Name', maxlength=24, name="lastName", value=client.lastName)
+          .form-group
+            label(for='image') Image
+            input#image.form-control(type='text', name="image", placeholder='http://', maxlength=250, value=client.image)     
+          .form-group
+            label(for='age') Age
+            input#age.form-control(type='number', name='age', placeholder='Client Age', maxlength=3, value=client.age)
+          .form-group
+            label(for='gender') Gender
+            label.radio-inline(for='male') Male
+            input(type='radio', name='gender', id='inlineRadio1', value='male', checked=client.gender === 'male')
+            label.radio-inline(for='female') Female
+            input(type='radio', name='gender', id='inlineRadio2', value='female', checked=client.gender === 'female')
+            label.radio-inline(for='other') Other
+            input(type='radio', name='gender', id='inlineRadio3', value='other', checked=client.gender === 'other')  
+          .form-group
+            label(for='email') Email
+            input#email.form-control(type='email', name='email', placeholder='Client email', maxlength=50, value=client.email)
+          .form-group
+            button.btn.btn-success(type='submit') Edit Client
+      .col-xs-8

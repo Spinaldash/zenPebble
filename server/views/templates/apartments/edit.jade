@@ -1,11 +1,11 @@
 extends ../../layouts/master
 block content
-  h3='Editing: ' + apartment.name 
+  h3.text-center='Editing: ' + apartment.name 
    
   .container
     .row
       .col-xs-12
-        form(method='post', action='/apartments')
+        form(method='post', action='/apartments/#{apartment._id}')
           .form-group
             label(for='name') Name
             input#name.form-control(placeholder='Apartment Name', maxlength=24, name="name", value=apartment.name)
@@ -37,5 +37,5 @@ block content
             label(for='description') Description
             textarea#description.form-control(rows='3', placeholder='Enter Apartment Description here', name='description')=apartment.description
           .form-group
-            button.btn.btn-success(type='submit') Submit Apartment to Database
+            button.btn.btn-success(type='submit') Submit Apartment
       .col-xs-8

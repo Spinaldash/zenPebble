@@ -1,0 +1,28 @@
+extends ../../layouts/master
+block content
+  h3 Clients Index
+  .container
+    .lead
+      a.btn.btn-success(href='/clients/new') Add Client!
+  
+  
+  #clients
+    .container-fluid
+      .index-table
+        table.table
+          caption Clients Index
+          thead
+            tr
+              th Apartment
+              th First Name
+              th Last Name
+              th Email
+              th RL.Secure Id #
+          tbody
+            each client in clients
+              tr  
+                td=client.apartment
+                td=client.firstName
+                td=client.lastName
+                td=client.email
+                th: a(href='/clients/#{client._id}')=client._id

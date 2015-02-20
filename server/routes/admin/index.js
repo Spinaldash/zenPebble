@@ -6,10 +6,11 @@ var Client = require('../../models/client');
 
 module.exports = {
   handler: function(request, reply) {
-    Apartment.findOne({_id:request.params.apartmentId}).populate('tenants').exec(function(err, apartment) {
-      console.log('Apartment: ', apartment)
+    Apartment.find(function(err, apartments) {
       Client.find(function(err, clients) {
-        reply.view('templates/apartments/show', {path: '/apartments', setActive:setActive, apartment:apartment, clients:clients});
+
+
+        reply.view('templates/admin/index', {path: '/admin', setActive:setActive, apartments:apartments, clients:clients});
       });
     })
   }
