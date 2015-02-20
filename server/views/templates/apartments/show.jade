@@ -24,7 +24,8 @@ block content
       .row
         .col-xs-4.apartment
           .page-header= apartment.name
-          .image(style='height: 100%; width: 100%; background-size: contain; background: url(' + apartment.image + ') no-repeat center center fixed;') 
+          a(href='/apartments/' + apartment._id)
+            img.img-square.sleek-image(src=apartment.image) 
         .col-xs-4.info
           .page-header Info
           .info  
@@ -41,5 +42,5 @@ block content
                 each t in apartment.tenants
                   - console.log(t)
                   a(href='/clients/' + t._id)
-                    img.img-circle(src=t.image)
+                    img.img-circle.sleek-tokens(src=t.image)
   
