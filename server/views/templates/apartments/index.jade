@@ -5,16 +5,16 @@ block content
   .container
     .lead
       a.btn.btn-success(href='/apartments/new') Add Apartment!
-    
-    #filter
-      form.form-inline(method='get', action='/apartments')
-        .input-group
-          .form-group
-            button.btn.btn-primary(type='submit') Filter   
-          .form-group
-            input.styled-input(type='number', name='min', placeholder='Min. rent')
-          .form-group
-            input.styled-input(type='number', name='max', placeholder='Max. rent')
+      
+    //- #filter
+    //-   form.form-inline(method='get', action='/apartments')
+    //-     .input-group
+    //-       .form-group
+    //-         button.btn.btn-primary(type='submit') Filter   
+    //-       .form-group
+    //-         input.styled-input(type='number', name='min', placeholder='Min. rent')
+    //-       .form-group
+    //-         input.styled-input(type='number', name='max', placeholder='Max. rent')
           
     #apartments
       .container-fluid
@@ -24,7 +24,7 @@ block content
               .stuffborder                              
                   .info  
                     ul.list-unstyled
-                      li:a.lead(href='/apartments/#{apartment._id}')= apartment.name
+                      li: a.lead(href='/apartments/#{apartment._id}')= apartment.name
                       li.sleek.roomsNum= apartment.roomsNum + ' Rooms'
                       li.sleek.sqft= apartment.sqft + " sqft."
                       li.sleek.rent= apartment.rent
