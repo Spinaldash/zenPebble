@@ -1,14 +1,25 @@
 extends ../../layouts/master
 block content
-.container-fluid
-  .row
-    .col-xs-4
-      .branch
-        h4.lead Apartments Overview
-          each a in apartments  
-    .col-xs-4
-      .branch
-        h4.lead Clients Overview
-    .col-xs-4
-      .branch
-        h4.lead General Overview
+  .container-fluid
+    .row
+      .col-xs-4
+        .branch
+          h4.lead Rooms Overview
+            .stuff
+              label Rooms Vacant
+              h5=data.roomsVacant
+            .stuff
+              label Rooms Filled
+              h5=data.roomsFilled
+      .col-xs-4
+        .branch
+          h4.lead Apartments Overview
+            .stuff
+              label Apartments Available
+              h5=data.apartmentsVacant
+      .col-xs-4
+        .branch
+          h4.lead General Overview
+            .stuff
+              label Total Revenue
+              h5=data.revenue
