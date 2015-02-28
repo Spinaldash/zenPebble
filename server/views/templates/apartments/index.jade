@@ -20,12 +20,11 @@ block content
       .container-fluid
         .row
           each apartment in apartments  
-            .aptBorder.inlineStuff
-              .stuffborder                              
-                  .info  
-                    ul.list-unstyled
-                      li: a.lead(href='/apartments/#{apartment._id}')= apartment.name
-                      li.sleek.roomsNum= apartment.roomsNum + ' Rooms'
-                      li.sleek.sqft= apartment.sqft + " sqft."
-                      li.sleek.rent= apartment.rent
-                  .image(style='background-repeat: no-repeat; background-size: cover; height: 200px; width: 100%s;  background-image:url(' + apartment.image + ')')
+            .aptBorder.inlineStuff                              
+                .info  
+                  ul.list-unstyled
+                    li: a.lead(href='/apartments/#{apartment._id}')= apartment.name
+                    li.sleek.roomsNum= apartment.roomsNum + ' Rooms'
+                    li.sleek.sqft= apartment.sqft + " sqft."
+                    li.sleek.rent= apartment.rent
+                .image(style='background-repeat: no-repeat; background-size: cover; height: 200px; width: 100%s;  background-image:url(' + apartment.image + ')')
